@@ -1,0 +1,200 @@
+@import url(../assets/bulma-1.0.2/css/bulma.min.css);
+@import url(../assets/aos/css/aos.css);
+@import url(../assets/fontawesome/css/all.min.css);
+@import url(../assets/OwlCarousel2-2.3.4/css/owl.carousel.min.css);
+@import url(../assets/OwlCarousel2-2.3.4/css/owl.theme.default.min.css);
+@import url(../assets/swal2/node_modules/sweetalert2/dist/sweetalert2.min.css);
+@import url(../assets/normalize/node_modules/normalize.css/normalize.css);
+
+@font-face {
+  font-family: "Helvetica";
+  src: url(../assets/fonts/helvetica-255/Helvetica.ttf);
+}
+
+@font-face {
+  font-family: "Helvetica Bold";
+  src: url(../assets/fonts/helvetica-255/Helvetica-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Helvetica Oblique";
+  src: url(../assets/fonts/helvetica-255/Helvetica-Oblique.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  scroll-padding-top: 52px;
+  scroll-behavior: smooth;
+  font-family: "Helvetica";
+  width: 100% !important;
+}
+
+#app-wrapper {
+  width: 100% !important;
+}
+
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 9990;
+}
+
+#home .title {
+  color: rgb(50, 197, 255) !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#home .title span {
+  display: block !important;
+}
+
+#home .title span:first-child {
+  font-size: 62px !important;
+  color: rgb(50, 197, 255) !important;
+  text-shadow: 0 1px 0 #2bb3d6, 0 2px 0 #26a7ca, 0 3px 0 #218cb0,
+    0 4px 0 #1d799d, 0 5px 0 #186688, 0 6px 1px #145775,
+    0 0 5px rgba(50, 197, 255, 0.2), 0 3px 10px rgba(0, 85, 125, 0.3),
+    0 10px 20px rgba(0, 60, 90, 0.25);
+}
+
+#home .title span:nth-child(2) {
+  font-size: 28px !important;
+  color: rgb(99, 97, 97) !important;
+}
+#home .subtitle {
+  font-size: 15px;
+}
+#home .button.is-primary {
+  background-color: rgb(50, 197, 255) !important;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#home .button.is-primary:hover {
+  background-color: rgb(45, 175, 226) !important;
+  color: white;
+}
+
+.featured-box {
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.featured-box:hover {
+  border-color: #00d1b2;
+}
+
+/* For loader */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out; /* Smooth fade-out transition */
+  overflow: -moz-hidden-unscrollable;
+}
+.preloader {
+  --color: #a5a5b0;
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.preloader span {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  animation: keyframes-blink 0.6s alternate infinite linear;
+}
+
+.loapreloaderer span:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.preloader span:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.preloader span:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+.preloader span:nth-child(4) {
+  animation-delay: 400ms;
+}
+
+.preloader span:nth-child(5) {
+  animation-delay: 500ms;
+}
+
+.preloader span:nth-child(6) {
+  animation-delay: 600ms;
+}
+
+@keyframes keyframes-blink {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.5) rotate(5deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #1abc9c;
+}
+
+footer .social-icons {
+  margin: 20px 0;
+}
+
+footer .social-icons a {
+  font-size: 18px;
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  transform: scale(1.1);
+}
+
+footer .footer-bottom {
+  margin-top: 20px;
+  font-size: 12px;
+}
