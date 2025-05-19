@@ -1,0 +1,22 @@
+/* Frameworks and Core Styles */
+@import url(../assets/bootstrap/css/bootstrap.min.css);
+@import url(../assets/fontawesome/css/all.min.css);
+@import url(../assets/bootstrap/bootstrap-icons/font/bootstrap-icons.min.css);
+@import url(../assets/DataTables/node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css);
+@import url(../assets/DataTables/node_modules/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css);
+
+/* Animation and Effects */
+@import url(../assets/aos/css/aos.css);
+@import url(../assets/OwlCarousel2-2.3.4/css/owl.carousel.min.css);
+@import url(../assets/OwlCarousel2-2.3.4/css/owl.theme.default.min.css);
+@import url(../assets/swal2/node_modules/sweetalert2/dist/sweetalert2.min.css);
+
+/* Admin and Utility Styles */
+@import url(./adminlte.min.css);
+@import url(./preloader.css);
+@import url(./w3.css);
+@import url(./jquery.fancybox.min.css);
+
+/* Custom Styles */
+@import url(./styles.css);
+@import url(./buttons.css);
