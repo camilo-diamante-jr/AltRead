@@ -1,0 +1,12 @@
+<?php
+
+
+class ApiController extends Controller
+{
+
+    public function showUsers(): void
+    {
+        $userController = new UserController($this->pdo);
+        $userController->showAllUsers();
+    }
+}
