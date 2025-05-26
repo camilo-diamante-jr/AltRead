@@ -24,7 +24,7 @@
 
     <div class="app-main-content">
         <div class="container-fluid">
-            <div class="card shadow-sm">
+            <div id="progressCard" class="card shadow-sm">
 
                 <div class="card-body">
                     <div class="row mb-2">
@@ -44,6 +44,13 @@
                                 <button type="submit" class="btn btn-primary">Filter</button>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="card p-4 mb-3">
+                        <p class="d-flex align-items-center mb-0 gap-2">
+                            <label for="">Name:</label>
+                            <input type="text" class="form-control shadow-0 border-0" name="" value="<?= "John D. Smith" ?>" id="studentName" readonly>
+                        </p>
                     </div>
 
 
@@ -76,9 +83,9 @@
                                         'average' => 88.75,
                                     ],
                                     [
-                                     'lesson' => 'Lesson 2',
-                                     'scores' => [20, 10, 5, 20]
-                                     'average' => 16.5
+                                        'lesson' => 'Lesson 2',
+                                        'scores' => [20, 10, 5, 20],
+                                        'average' => 16.5
                                     ]
                                     // Add more lessons as needed
                                 ];
@@ -130,3 +137,17 @@
 </main>
 
 <?php $this->renderView('./portals/Admin/partials/admin-footer'); ?>
+<style>
+    #progressCard #studentName {
+        color: #333;
+        outline: 0 !important;
+        box-shadow: none !important;
+        border-bottom: 1px solid rgb(26, 29, 33) !important;
+        border-radius: 0 !important;
+    }
+</style>
+<script>
+    $(document).read(function() {
+
+    });
+</script>
