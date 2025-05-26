@@ -65,33 +65,47 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Lesson 1</td>
-                                    <td>85</td>
-                                    <td>90</td>
-                                    <td>88</td>
-                                    <td>92</td>
-                                    <td><strong>88.75</strong></td>
-                                    <td class="text-success fw-semibold">Passed</td>
-                                </tr>
-                                <tr>
-                                    <td>Lesson 2</td>
-                                    <td>70</td>
-                                    <td>65</td>
-                                    <td>75</td>
-                                    <td>80</td>
-                                    <td><strong>72.5</strong></td>
-                                    <td class="text-warning fw-semibold">Failed</td>
-                                </tr>
-                                <tr>
-                                    <td>Lesson 3</td>
-                                    <td>95</td>
-                                    <td>98</td>
-                                    <td>97</td>
-                                    <td>99</td>
-                                    <td><strong>97.25</strong></td>
-                                    <td class="text-success fw-semibold">Passed</td>
-                                </tr>
+                                <?php
+
+
+                                $submissions = [
+
+                                    [
+                                        'lesson' => 'Lesson 1',
+                                        'scores' => [85, 90, 88, 92],
+                                        'average' => 88.75,
+                                    ],
+                                    // Add more lessons as needed
+
+
+                                ];
+
+                                foreach ($submissions as $submission):  ?>
+
+                                    <tr>
+                                        <td><?= htmlspecialchars($submission['lesson']) ?></td>
+                                        <?php foreach ($submission['scores'] as $score): ?>
+                                            <td><?= htmlspecialchars($score) ?></td>
+                                        <?php endforeach; ?>
+                                        <td><?= htmlspecialchars(number_format($submission['average'], 2)) ?></td>
+                                        <td>
+                                            <?php
+
+                                            if ($submission['average'] >= 75) {
+                                                echo '<span class="badge bg-success">Passed</span>';
+                                            } else {
+                                                echo '<span class="badge bg-danger">Failed</span>';
+                                            }
+
+
+                                            ?>
+
+                                        </td>
+                                    </tr>
+
+
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>
