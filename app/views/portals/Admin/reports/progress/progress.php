@@ -75,13 +75,15 @@
                                         'scores' => [85, 90, 88, 92],
                                         'average' => 88.75,
                                     ],
+                                    [
+                                     'lesson' => 'Lesson 2',
+                                     'scores' => [20, 10, 5, 20]
+                                     'average' => 16.5
+                                    ]
                                     // Add more lessons as needed
-
-
                                 ];
 
                                 foreach ($submissions as $submission):  ?>
-
                                     <tr>
                                         <td><?= htmlspecialchars($submission['lesson']) ?></td>
                                         <?php foreach ($submission['scores'] as $score): ?>
@@ -97,13 +99,9 @@
                                                 echo '<span class="badge bg-danger">Failed</span>';
                                             }
 
-
                                             ?>
-
                                         </td>
                                     </tr>
-
-
                                 <?php endforeach; ?>
 
                             </tbody>
