@@ -1,6 +1,6 @@
 <?php $this->renderView("./portals/Admin/partials/admin-header", $data); ?>
 
-<main class="app-main mt-5">
+<main class="app-main mt-3">
     <!-- Page Header -->
     <div class="app-content-header">
         <div class="container-fluid">
@@ -24,12 +24,97 @@
 
     <div class="app-main-content">
         <div class="container-fluid">
+            <div class="card shadow-sm">
 
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-md-6 mb-2">
+                            <input type="text" class="form-control" placeholder="Enter a student name here..." id="searchInput">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <select name="" id="" class="form-select">
+                                    <option value="">Select a module</option>
+                                    <?php foreach ($data['modules'] as $module): ?>
+                                        <option value="<?= htmlspecialchars($module['module_id']) ?>">
+                                            <?= htmlspecialchars($module['module_name'] . ": " . $module['module_description']) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- BEGIN: Student Progress Table -->
+                    <div class="table-responsive pb-0">
+                        <table class="table table-bordered text-center  table-striped shadow-sm">
+                            <thead class="table-success">
+                                <tr class="align-middle">
+                                    <th rowspan="2">LESSONS</th>
+                                    <th colspan="4">SECTIONS</th>
+                                    <th rowspan="2">AVERAGE</th>
+                                    <th rowspan="2">REMARKS</th>
+                                </tr>
+                                <tr>
+                                    <th>S1</th>
+                                    <th>S2</th>
+                                    <th>S3</th>
+                                    <th>S4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lesson 1</td>
+                                    <td>85</td>
+                                    <td>90</td>
+                                    <td>88</td>
+                                    <td>92</td>
+                                    <td><strong>88.75</strong></td>
+                                    <td class="text-success fw-semibold">Passed</td>
+                                </tr>
+                                <tr>
+                                    <td>Lesson 2</td>
+                                    <td>70</td>
+                                    <td>65</td>
+                                    <td>75</td>
+                                    <td>80</td>
+                                    <td><strong>72.5</strong></td>
+                                    <td class="text-warning fw-semibold">Failed</td>
+                                </tr>
+                                <tr>
+                                    <td>Lesson 3</td>
+                                    <td>95</td>
+                                    <td>98</td>
+                                    <td>97</td>
+                                    <td>99</td>
+                                    <td><strong>97.25</strong></td>
+                                    <td class="text-success fw-semibold">Passed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END: Student Progress Table -->
+                    <p class="fst-italic mt-0">
+                        <small>
+                            <span>Note:</span> Please select a student to view their progress in the modules.
+                            You can also search for a student by name or filter by module to see their progress in that specific module.
+                        </small>
+                    </p>
+                </div>
+
+                <footer class="card-footer">
+                    <div class="text-center">
+                        <button type="button" class="print-btn btn btn-outline-success btn-sm">
+                            <i class="fa fa-print" aria-hidden="true"></i>
+                            Print Report
+                        </button>
+                    </div>
+                </footer>
+            </div>
         </div>
     </div>
 </main>
-
-
-
 
 <?php $this->renderView('./portals/Admin/partials/admin-footer'); ?>

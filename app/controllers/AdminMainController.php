@@ -133,6 +133,8 @@ class AdminMainController extends Controller
     public function showProgress(): void
     {
         $this->renderAdminView('Students Progress', 'reports/progress/progress', [
+            'learners' => $this->models['pisModel']->showAllLearners(),
+            'modules' => $this->models['moduleModel']->showAllModules(),
             'pretestSubmissions' => $this->controllers['pretestController']->viewAllPretestSubmission()
         ], 'Progress');
     }
