@@ -46,8 +46,7 @@ class SubmissionsModel
                 FROM submissions
                 INNER JOIN learners ON submissions.learner_id = learners.learner_id
                 WHERE learners.learner_id = :learner_id
-                GROUP BY learners.learner_id
-            ";
+                GROUP BY learners.learner_id";
 
             $stmt = $this->pdo->prepare($query);
             $stmt->execute(['learner_id' => $learnerId]);
@@ -64,9 +63,7 @@ class SubmissionsModel
         $query = "
             INSERT INTO submissions
                 (question_id, choice_id, written_answer, is_correct, learner_id, lesson_id)
-            VALUES
-                (:question_id, :choice_id, :written_answer, :is_correct, :learner_id, :lesson_id)
-        ";
+             VALUES(:question_id, :choice_id, :written_answer, :is_correct, :learner_id, :lesson_id)";
 
         $stmt = $this->pdo->prepare($query);
         return $stmt->execute([

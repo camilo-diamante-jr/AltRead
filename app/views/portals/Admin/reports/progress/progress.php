@@ -1,7 +1,6 @@
 <?php $this->renderView("./portals/Admin/partials/admin-header", $data); ?>
 
 <main class="app-main mt-3">
-    <!-- Page Header -->
     <div class="app-content-header">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -25,15 +24,15 @@
     <div class="app-main-content">
         <div class="container-fluid">
             <div id="progressCard" class="card shadow-sm">
-
                 <div class="card-body">
-                    <div class="row mb-2">
+                    <div class="row mb-2 position-relative">
                         <div class="col-md-6 mb-2">
-                            <input type="text" class="form-control" placeholder="Enter a student name here..." id="searchInput">
+                            <input type="text" class="form-control" placeholder="Enter a student name here..." id="searchStudentInput">
+                            <div class="student-list position-absolute bg-white border"></div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <select name="" id="" class="form-select">
+                                <select name="" id="moduleSelect" class="form-select">
                                     <option value="">Select a module</option>
                                     <?php foreach ($data['modules'] as $module): ?>
                                         <option value="<?= htmlspecialchars($module['module_id']) ?>">
@@ -41,7 +40,7 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <button type="submit" class="btn btn-primary" id="filterBtn">Filter</button>
                             </div>
                         </div>
                     </div>
@@ -49,14 +48,12 @@
                     <div class="card p-4 mb-3">
                         <p class="d-flex align-items-center mb-0 gap-2">
                             <label for="">Name:</label>
-                            <input type="text" class="form-control shadow-0 border-0" name="" value="<?= "John D. Smith" ?>" id="studentName" readonly>
+                            <input type="text" class="form-control shadow-0 border-0" id="studentName" readonly>
                         </p>
                     </div>
 
-
-                    <!-- BEGIN: Student Progress Table -->
                     <div class="table-responsive pb-0">
-                        <table class="table table-bordered text-center  table-striped shadow-sm">
+                        <table id="progressTable" class="table table-bordered text-center table-striped shadow-sm">
                             <thead class="table-success">
                                 <tr class="align-middle">
                                     <th rowspan="2">LESSONS</th>
@@ -71,63 +68,18 @@
                                     <th>S4</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php
-
-
-                                $submissions = [
-
-                                    [
-                                        'lesson' => 'Lesson 1',
-                                        'scores' => [85, 90, 88, 92],
-                                        'average' => 88.75,
-                                    ],
-                                    [
-                                        'lesson' => 'Lesson 2',
-                                        'scores' => [20, 10, 5, 20],
-                                        'average' => 16.5
-                                    ]
-                                    // Add more lessons as needed
-                                ];
-
-                                foreach ($submissions as $submission):  ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($submission['lesson']) ?></td>
-                                        <?php foreach ($submission['scores'] as $score): ?>
-                                            <td><?= htmlspecialchars($score) ?></td>
-                                        <?php endforeach; ?>
-                                        <td><?= htmlspecialchars(number_format($submission['average'], 2)) ?></td>
-                                        <td>
-                                            <?php
-
-                                            if ($submission['average'] >= 75) {
-                                                echo '<span class="badge bg-success">Passed</span>';
-                                            } else {
-                                                echo '<span class="badge bg-danger">Failed</span>';
-                                            }
-
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
-                    <!-- END: Student Progress Table -->
                     <p class="fst-italic mt-0">
-                        <small>
-                            <span>Note:</span> Please select a student to view their progress in the modules.
-                            You can also search for a student by name or filter by module to see their progress in that specific module.
-                        </small>
+                        <small><span>Note:</span> Please select a student to view their progress in the modules. You can also search for a student by name or filter by module to see their progress in that specific module.</small>
                     </p>
                 </div>
 
                 <footer class="card-footer">
                     <div class="text-center">
                         <button type="button" class="print-btn btn btn-outline-success btn-sm">
-                            <i class="fa fa-print" aria-hidden="true"></i>
-                            Print Report
+                            <i class="fa fa-print" aria-hidden="true"></i> Print Report
                         </button>
                     </div>
                 </footer>
@@ -137,17 +89,41 @@
 </main>
 
 <?php $this->renderView('./portals/Admin/partials/admin-footer'); ?>
-<style>
-    #progressCard #studentName {
-        color: #333;
-        outline: 0 !important;
-        box-shadow: none !important;
-        border-bottom: 1px solid rgb(26, 29, 33) !important;
-        border-radius: 0 !important;
-    }
-</style>
+
+
 <script>
-    $(document).read(function() {
+    $(document).ready(function() {
+        const searchInput = $('#searchStudentInput');
+        const studentSuggestionList = $('.student-list');
+
+
+        searchInput.on('input', function() {
+            const inputValue = $(this).val().trim();
+            if (inputValue.length > 0) {
+                $.ajax({
+                    url: '/admin/search-students',
+                    method: 'GET',
+                    data: {
+                        student_name: inputValue
+                    },
+                    success: function(response) {
+                        studentSuggestionList.empty();
+                        if (response.success && response.data.length > 0) {
+                            response.data.forEach(student => {
+                                studentSuggestionList.append(`<div class="student-item" data-id="${student.id}">${student.name}</div>`);
+                            });
+                        } else {
+                            studentSuggestionList.append('<div class="no-results">No students found</div>');
+                        }
+                    }
+                });
+            } else {
+                studentSuggestionList.empty();
+            }
+
+
+
+        });
 
     });
 </script>
