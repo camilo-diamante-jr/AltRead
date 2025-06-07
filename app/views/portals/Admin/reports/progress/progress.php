@@ -45,34 +45,50 @@
                         </div>
                     </div>
 
-                    <div class="card p-4 mb-3">
-                        <p class="d-flex align-items-center mb-0 gap-2">
-                            <label for="">Name:</label>
-                            <input type="text" class="form-control shadow-0 border-0" id="studentName" readonly>
-                        </p>
+                    <div class="card p-4 ">
+                        <section class="mb-4">
+                            <p class="d-flex align-items-center gap-2">
+                                <label for="">Name:</label>
+                                <span class="border-bottom border-dark w-50">a</span>
+                            </p>
+
+                            <p class="d-flex align-items-center gap-2">
+                                <label for="">Age:</label>
+                                <span class="border-bottom border-dark w-50"></span>
+                            </p>
+
+
+
+
+                        </section>
+
+                        <div class="table-responsive pb-0">
+                            <table id="progressTable" class="table table-bordered text-center table-striped shadow-sm">
+                                <thead class="table-">
+                                    <tr class="align-middle">
+                                        <th rowspan="2">LESSONS</th>
+                                        <th colspan="4">SECTIONS</th>
+                                        <th rowspan="2">AVERAGE</th>
+                                        <th rowspan="2">REMARKS</th>
+                                    </tr>
+                                    <tr>
+                                        <th>S1</th>
+                                        <th>S2</th>
+                                        <th>S3</th>
+                                        <th>S4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <td colspan="7" class="align-middle">
+                                        <span class="text-danger">No data have been fetch yet!</span>
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
-                    <div class="table-responsive pb-0">
-                        <table id="progressTable" class="table table-bordered text-center table-striped shadow-sm">
-                            <thead class="table-success">
-                                <tr class="align-middle">
-                                    <th rowspan="2">LESSONS</th>
-                                    <th colspan="4">SECTIONS</th>
-                                    <th rowspan="2">AVERAGE</th>
-                                    <th rowspan="2">REMARKS</th>
-                                </tr>
-                                <tr>
-                                    <th>S1</th>
-                                    <th>S2</th>
-                                    <th>S3</th>
-                                    <th>S4</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
                     <p class="fst-italic mt-0">
-                        <small><span>Note:</span> Please select a student to view their progress in the modules. You can also search for a student by name or filter by module to see their progress in that specific module.</small>
+                        <small><span>Note:</span> You can search for a student by name or filter by module to see their progress in that specific module.</small>
                     </p>
                 </div>
 
