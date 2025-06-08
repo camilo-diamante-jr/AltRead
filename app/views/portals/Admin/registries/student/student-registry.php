@@ -190,7 +190,7 @@
         fetchLearnerDetails(learnerId) {
             $.ajax({
                 type: "POST",
-                url: "/ajax/showLearnerById",
+                url: "/api/showLearnerById",
                 data: {
                     learnerID: learnerId
                 },

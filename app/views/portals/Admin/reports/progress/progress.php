@@ -54,11 +54,8 @@
 
                             <p class="d-flex align-items-center gap-2">
                                 <label for="">Age:</label>
-                                <span class="border-bottom border-dark w-50"></span>
+                                <span class="border-bottom border-dark w-50"> </span>
                             </p>
-
-
-
 
                         </section>
 

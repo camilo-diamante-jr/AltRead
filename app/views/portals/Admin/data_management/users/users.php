@@ -79,12 +79,12 @@ include_once 'components/user_modal.php';
                                         </td>
                                         <td>
                                             <div class="">
-                                                <button type="button" class="btn mb-2 editUserBtn btn-sm btn-primary">
+                                                <a class="editUserBtn fs-5 text-warning">
                                                     <i class="fa fa-edit" title="Edit user"></i>
-                                                </button>
-                                                <button type="button" class="btn mb-2 archiveBtn btn-sm btn-danger">
-                                                    <i class="fa fa-trash" title="Remove user"></i>
-                                                </button>
+                                                </a>
+                                                <a class="archiveBtn fs-5 text-danger">
+                                                    <i class="fa fa-archive" title="Remove user"></i>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>

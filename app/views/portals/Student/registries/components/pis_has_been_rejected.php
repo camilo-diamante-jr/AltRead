@@ -1,4 +1,4 @@
-<?php $this->renderView('pages/Student/partials/header-student', $data); ?>
+<?php $this->renderView('portals/Student/partials/header-student', $data); ?>
 
 <!-- Main Content -->
 <main class="app-main d-flex align-items-center justify-content-center min-vh-100">
@@ -18,4 +18,4 @@
     </section>
 </main>
 
-<?php $this->renderView('pages/Student/partials/footer-student'); ?>
+<?php $this->renderView('portals/Student/partials/footer-student'); ?>

@@ -1,5 +1,5 @@
 <?php
-$this->renderView('/pages/Student/partials/header-student', $data);
+$this->renderView('/portals/Student/partials/header-student', $data);
 ?>
 
 <!-- Main Content -->
@@ -110,7 +110,7 @@ $this->renderView('/pages/Student/partials/header-student', $data);
 </main>
 
 <?php
-$this->renderView('pages/Student/partials/footer-student');
+$this->renderView('/portals/Student/partials/footer-student');
 ?>
 
 <script>

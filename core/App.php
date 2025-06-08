@@ -15,8 +15,10 @@ class App
 
     public function run()
     {
-        require_once '../routes/web.php';
         require_once '../routes/auth.php';
+
+        // require_once '../routes/web.php';
+
 
         $userRole = $_SESSION['user_type'] ?? null;
 
@@ -28,7 +30,7 @@ class App
                 $this->loadRoutes('teacher', 'TeacherController', '/teacher');
                 break;
             case 'Learner':
-                $this->loadRoutes('learner', 'LearnerController', '/learner');
+                $this->loadRoutes('learner', 'StudentMainController', '/student');
                 break;
         }
 

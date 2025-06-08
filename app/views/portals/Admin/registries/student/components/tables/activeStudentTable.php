@@ -14,7 +14,7 @@
                 $middleInitial = !empty($student['middle_name']) ? substr($student['middle_name'], 0, 1) . '.' : '';
                 $completeName = "{$student['first_name']} $middleInitial {$student['last_name']}";
                 $gender = ucfirst($student['sex']);
-                $reasonForRejection = $student['reason_for_rejection'] ?? 'N/A';
+                $reasonForRejection = $student['reason_for_rejection'] ?? 'Not applicable';
 
                 // Determine enrollment status
                 switch ($student['enrollment_status']) {
@@ -37,19 +37,19 @@
                   <td><?= htmlspecialchars($completeName) ?></td>
                   <td><?= htmlspecialchars($gender) ?></td>
                   <td><?= $enrollmentStatus ?></td>
-                  <td class="text-center"><?= htmlspecialchars($reasonForRejection) ?></td>
+                  <td class="text-danger fw-bold"><?= htmlspecialchars($reasonForRejection) ?></td>
                   <td>
                       <?php if ($student['enrollment_status'] == "pending" || $student['enrollment_status'] == 'rejected'): ?>
                           <button type="button" class="btn review-btn btn-primary btn-sm"
                               data-bs-toggle="modal" data-bs-target="#reviewFormModal"
                               data-id="<?= htmlspecialchars($student['learner_id']) ?>">
-                              <i class="bi bi-eye"></i> Review
+                              Review
                           </button>
                       <?php else: ?>
-                          <a href="#" class="text-warning">
+                          <a href="#" class="text-warning fs-5" title="Edit">
                               <i class="fas fa-edit"></i>
                           </a>
-                          <a href="#" class="btn btn-danger btn-sm">
+                          <a href="#" class="text-danger fs-5" title="Archive">
                               <i class="fa fa-archive"></i>
                           </a>
                       <?php endif; ?>

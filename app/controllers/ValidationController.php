@@ -47,7 +47,7 @@ class ValidationController extends Controller
         $message = '';
         $title = '';
 
-        $registryComponents = 'pages/Student/registries/components/';
+        $registryComponents = 'portals/Student/registries/components/';
 
         switch ($status) {
             case "pending":
@@ -61,12 +61,12 @@ class ValidationController extends Controller
                 $title = "PIS - Rejected";
                 break;
             case "unauthorized":
-                $view = 'pages/unauthorized';
+                $view = 'portals/unauthorized';
                 $message = 'You are not authorized to access this page.';
                 $title = "Unauthorized Access";
                 break;
             default:
-                $view = 'pages/Student/registries/view.personal.info';
+                $view = 'portals/Student/registries/view.personal.info';
                 $message = 'Please complete your Personal Information Sheet to proceed.';
                 $title = "Personal Information Sheet";
         }

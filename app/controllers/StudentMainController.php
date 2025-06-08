@@ -48,7 +48,7 @@ class StudentMainController extends Controller
             'brand_text' => 'Student Portal',
         ];
 
-        $this->renderView('./pages/Student/view.dashboard', $data);
+        $this->renderView('/portals/Student/view.dashboard', $data);
     }
 
     public function viewAssessments(): void
@@ -120,7 +120,7 @@ class StudentMainController extends Controller
             'materials' => $materials
         ];
 
-        $this->renderView('/pages/Student/view.materials', $data);
+        $this->renderView('/portals/Student/view.materials', $data);
     }
 
     public function viewYourSubmissions(): void
