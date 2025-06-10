@@ -16,8 +16,8 @@ class App
     public function run()
     {
         require_once '../routes/auth.php';
+        require_once '../routes/web.php';
 
-        // require_once '../routes/web.php';
 
 
         $userRole = $_SESSION['user_type'] ?? null;
